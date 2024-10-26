@@ -7,15 +7,19 @@ const rockBtn = document.getElementById("Rock");
 const paperBtn = document.getElementById("Paper");
 const scissorsBtn = document.getElementById("Scissors");
 
-rockBtn.onclick = () => OnPlayerInput("Rock");
-paperBtn.onclick = () => OnPlayerInput("Paper");
-scissorsBtn.onclick = () => OnPlayerInput("Scissors");
+rockBtn.onclick = () => onPlayerInput("Rock");
+paperBtn.onclick = () => onPlayerInput("Paper");
+scissorsBtn.onclick = () => onPlayerInput("Scissors");
 
-function OnPlayerInput(value) {
-    playerGraphic.textContent = GetIcon(value);
+function onPlayerInput(value) {
+    let playerChoice = value;
+    let computerChoice = getComputerChoice();
+    playerGraphic.textContent = getIcon(playerChoice);
+    computerGraphic.textContent = getIcon(computerChoice);
+    
 }
 
-function GetIcon(value)
+function getIcon(value)
 {
     if(value === "Rock") return String.fromCodePoint(9994);
     else if(value === "Scissors") return String.fromCodePoint(9995);
@@ -82,13 +86,12 @@ function getComputerChoice()
     let choice = 0;
 
     if(random < 0.33)
-        choice = 1;
+        choice = "Rock";
     else if(random > 0.66)
-        choice = 2;
+        choice = "Paper";
     else 
-        choice = 3;
+        choice = "Scissors";
 
-    console.log(choice);
     return choice;
 }
 
