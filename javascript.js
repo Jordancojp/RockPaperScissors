@@ -21,9 +21,44 @@ function onPlayerInput(value) {
 
 function getIcon(value)
 {
+    // assigning emoji unicode as string does not work, this is a workaround.
     if(value === "Rock") return String.fromCodePoint(9994);
     else if(value === "Scissors") return String.fromCodePoint(9995);
     else if (value === "Paper") return String.fromCodePoint(9996);
+}
+
+function getComputerChoice()
+{
+    let random = Math.random();
+    let choice = 0;
+
+    if(random < 0.33)
+        choice = "Rock";
+    else if(random > 0.66)
+        choice = "Paper";
+    else 
+        choice = "Scissors";
+
+    return choice;
+}
+
+function CheckWinner(p, c)
+{
+    let result = "";
+    if(p === c) {
+        result = "It's a tie!"
+    }
+
+    else if((p === "Rock" && c === "Scissors") || (p === "Scissors" && c === "Paper") || (p === "Paper" && c === "Rock")) {
+        playerScore++;
+        result = "Player wins!";
+    }
+    else { 
+        computerScore++;
+        result = "computer wins!";
+    }
+
+    console.log(result);
 }
 
 /* OBSOLETE
@@ -79,38 +114,3 @@ function GetRPS( i )
     if(i === 3)
     return "Scissors"
 } */
-
-function getComputerChoice()
-{
-    let random = Math.random();
-    let choice = 0;
-
-    if(random < 0.33)
-        choice = "Rock";
-    else if(random > 0.66)
-        choice = "Paper";
-    else 
-        choice = "Scissors";
-
-    return choice;
-}
-
-function CheckWinner(p, c)
-{
-    let consoleMessage = "";
-    if(p === c) {
-        consoleMessage = "It's a tie!"
-    }
-
-    else if((p === 1 && c === 3) || (p === 2 && c === 1) || (p === 3 && c === 2)) {
-        playerScore++;
-        consoleMessage = "Player wins!";
-    }
-    else { 
-        computerScore++;
-        consoleMessage = "computer wins!";
-    }
-
-    console.log(consoleMessage);
-}
-
