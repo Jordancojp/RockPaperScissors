@@ -1,5 +1,10 @@
 var playerScore = 0, computerScore = 0, round = 0;
 
+const roundCount = document.querySelector("#RoundCount")
+
+const scoreBoardPlayer = document.querySelector("#ScoreBoard .Player");
+const scoreBoardComputer = document.querySelector("#ScoreBoard .Computer");
+
 const playerGraphic = document.querySelector("#HandGraphics .Player");
 const computerGraphic = document.querySelector("#HandGraphics .Computer");
 
@@ -14,9 +19,22 @@ scissorsBtn.onclick = () => onPlayerInput("Scissors");
 function onPlayerInput(value) {
     let playerChoice = value;
     let computerChoice = getComputerChoice();
+
     playerGraphic.textContent = getIcon(playerChoice);
     computerGraphic.textContent = getIcon(computerChoice);
-    
+
+    round++;
+    if(round > 5)
+    {
+        round = 1;
+        playerScore = 0;
+        computerScore = 0;
+    }
+    let resultText = CheckWinner(playerChoice, computerChoice);
+    roundCount.textContent = `Round ${round} - ${resultText}`;
+
+    scoreBoardPlayer.textContent = "Player Score: " + playerScore;
+    scoreBoardComputer.textContent = "Computer Score: " + computerScore;
 }
 
 function getIcon(value)
@@ -55,10 +73,10 @@ function CheckWinner(p, c)
     }
     else { 
         computerScore++;
-        result = "computer wins!";
+        result = "Computer wins!";
     }
 
-    console.log(result);
+    return result;
 }
 
 /* OBSOLETE
