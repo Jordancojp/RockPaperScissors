@@ -23,8 +23,8 @@ function getIcon(value)
 {
     // assigning emoji unicode as string does not work, this is a workaround.
     if(value === "Rock") return String.fromCodePoint(9994);
-    else if(value === "Scissors") return String.fromCodePoint(9995);
-    else if (value === "Paper") return String.fromCodePoint(9996);
+    else if(value === "Paper") return String.fromCodePoint(9995);
+    else if (value === "Scissors") return String.fromCodePoint(9996);
 }
 
 function getComputerChoice()
