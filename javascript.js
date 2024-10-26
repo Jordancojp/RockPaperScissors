@@ -1,6 +1,19 @@
-console.log("Hello World");
-
 var playerScore = 0, computerScore = 0;
+
+const rockBtn = document.querySelector("Rock");
+const paperBtn = document.querySelector("Paper");
+const scissorsBtn = document.querySelector("Scissors");
+
+const playerGraphic = document.querySelector("HandGraphic.Player");
+const computerGraphic = document.querySelector("HandGraphic.Computer");
+
+rockBtn.onClick = () => OnPlayerInput("Rock");
+rockBtn.onClick = () => OnPlayerInput("Paper");
+rockBtn.onClick = () => OnPlayerInput("Scissors");
+
+function OnPlayerInput(value) {
+    playerGraphic.textContent = GetIcon(value);
+}
 
 GameLoop();
 
@@ -16,7 +29,7 @@ function GameLoop()
         //     playerChoice = parseInt(prompt("Type a number: 1 rock || 2 paper || 3 scissors"));
         // }
 
-        playerChoice = parseInt(prompt("Type a number: 1 rock || 2 paper || 3 scissors"));
+        //playerChoice = parseInt(prompt("Type a number: 1 rock || 2 paper || 3 scissors"));
         
         console.log(playerChoice);
         let computerChoice = getComputerChoice();

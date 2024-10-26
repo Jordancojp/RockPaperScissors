@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('roboto.eot'); /* IE9 Compat Modes */
+    src: url('roboto.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('roboto.woff') format('woff'), /* Modern Browsers */
+    url('roboto.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('roboto.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+* {
+    background-color: rgb(37, 19, 37);
+    font-family: 'Roboto', sans-serif;
+    color: aliceblue;
+}
+
+#Title {
+    font-size: 38px;
+    text-align: center;
+    margin-top: 38px;
+    margin-bottom: 38px;
+}
+
+#RoundCount {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+#ScoreBoard {
+    display: flex;
+    font-size: 24px;
+    justify-content: center;
+    margin-bottom: 38px;
+}
+
+#ScoreBoard div {
+    flex-basis: 1;
+    min-width: 250px;
+}
+
+#ScoreBoard .Player {
+    text-align: left;
+}
+#ScoreBoard .Computer {
+    text-align: right;
+}
+
+#HandGraphics {
+    display: flex;
+    font-size: 125px;
+    justify-content: center;
+    margin-bottom: 38px;
+}
+
+#HandGraphics.Computer {
+    transform: scale(-1, 1);
+}
+
+#Input {
+    display: flex;
+    justify-content: center;
+    margin: 38px;
+}
+
+#Input button {
+    text-align: center;
+    font-size: 64px;
+    flex-basis: 1;
+    margin-left: 32px;
+    margin-right: 32px;
+    border-radius: 50%;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+}
+
+#Input button:hover {
+    text-align: center;
+    flex-basis: 1;
+    margin-left: 32px;
+    margin-right: 32px;
+    border-radius: 50%;
+    border-color: rgb(0, 186, 186);
+}
+
+#Input button:active {
+    text-align: center;
+    flex-basis: 1;
+    margin-left: 32px;
+    margin-right: 32px;
+    border-radius: 50%;
+    border-color: aqua;
+}
