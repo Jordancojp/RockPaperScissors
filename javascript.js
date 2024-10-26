@@ -1,19 +1,28 @@
-var playerScore = 0, computerScore = 0;
+var playerScore = 0, computerScore = 0, round = 0;
 
-const rockBtn = document.querySelector("Rock");
-const paperBtn = document.querySelector("Paper");
-const scissorsBtn = document.querySelector("Scissors");
+const playerGraphic = document.querySelector("#HandGraphics .Player");
+const computerGraphic = document.querySelector("#HandGraphics .Computer");
 
-const playerGraphic = document.querySelector("HandGraphic.Player");
-const computerGraphic = document.querySelector("HandGraphic.Computer");
+const rockBtn = document.getElementById("Rock");
+const paperBtn = document.getElementById("Paper");
+const scissorsBtn = document.getElementById("Scissors");
 
-rockBtn.onClick = () => OnPlayerInput("Rock");
-rockBtn.onClick = () => OnPlayerInput("Paper");
-rockBtn.onClick = () => OnPlayerInput("Scissors");
+rockBtn.onclick = () => OnPlayerInput("Rock");
+paperBtn.onclick = () => OnPlayerInput("Paper");
+scissorsBtn.onclick = () => OnPlayerInput("Scissors");
 
 function OnPlayerInput(value) {
     playerGraphic.textContent = GetIcon(value);
 }
+
+function GetIcon(value)
+{
+    if(value === "Rock") return String.fromCodePoint(9994);
+    else if(value === "Scissors") return String.fromCodePoint(9995);
+    else if (value === "Paper") return String.fromCodePoint(9996);
+}
+
+/* OBSOLETE
 
 GameLoop();
 
@@ -65,7 +74,7 @@ function GetRPS( i )
     return "Paper"
     if(i === 3)
     return "Scissors"
-}
+} */
 
 function getComputerChoice()
 {
