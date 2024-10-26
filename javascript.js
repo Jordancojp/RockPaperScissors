@@ -1,22 +1,45 @@
 var playerScore = 0, computerScore = 0, round = 0;
 
-const roundCount = document.querySelector("#RoundCount")
+const roundCount = document.querySelector("#RoundCount");
+const playAgain = document.querySelector("#PlayAgain button");
+playAgain.style.display = "none";
+playAgain.onclick = () => newGame();
 
 const scoreBoardPlayer = document.querySelector("#ScoreBoard .Player");
 const scoreBoardComputer = document.querySelector("#ScoreBoard .Computer");
 
+const graphics = document.querySelector("#HandGraphics");
 const playerGraphic = document.querySelector("#HandGraphics .Player");
 const computerGraphic = document.querySelector("#HandGraphics .Computer");
 
+const buttons = document.querySelector("#Input");
 const rockBtn = document.getElementById("Rock");
 const paperBtn = document.getElementById("Paper");
 const scissorsBtn = document.getElementById("Scissors");
 
-rockBtn.onclick = () => onPlayerInput("Rock");
-paperBtn.onclick = () => onPlayerInput("Paper");
-scissorsBtn.onclick = () => onPlayerInput("Scissors");
+rockBtn.onclick = () => playRound("Rock");
+paperBtn.onclick = () => playRound("Paper");
+scissorsBtn.onclick = () => playRound("Scissors");
 
-function onPlayerInput(value) {
+function newGame()
+{
+    graphics.style.display = "flex";
+    buttons.style.display = "flex";
+    playAgain.style.display = "none";
+
+    round = 0;
+    playerScore = 0;
+    computerScore = 0;
+
+    roundCount.textContent = `Round 1`;
+
+    scoreBoardPlayer.textContent = "Player Score: " + playerScore;
+    scoreBoardComputer.textContent = "Computer Score: " + computerScore;
+}
+
+newGame();
+
+function playRound(value) {
     let playerChoice = value;
     let computerChoice = getComputerChoice();
 
@@ -24,17 +47,20 @@ function onPlayerInput(value) {
     computerGraphic.textContent = getIcon(computerChoice);
 
     round++;
-    if(round > 5)
-    {
-        round = 1;
-        playerScore = 0;
-        computerScore = 0;
-    }
     let resultText = CheckWinner(playerChoice, computerChoice);
     roundCount.textContent = `Round ${round} - ${resultText}`;
 
     scoreBoardPlayer.textContent = "Player Score: " + playerScore;
     scoreBoardComputer.textContent = "Computer Score: " + computerScore;
+
+    if(playerScore >= 5 || computerScore >= 5 )
+    {
+        roundCount.textContent = playerScore > computerScore ? "Player wins!" : "Computer wins!";
+
+        graphics.style.display = "none";
+        buttons.style.display = "none";
+        playAgain.style.display = "flex";
+    }
 }
 
 function getIcon(value)

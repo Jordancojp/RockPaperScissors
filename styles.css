@@ -90,3 +90,24 @@
     border-radius: 50%;
     border-color: aqua;
 }
+
+#PlayAgain {
+    display: flex;
+    justify-content: center;
+    margin-top: 38px;
+}
+
+#PlayAgain button {
+    font-size: 24px;
+    border-color: rgb(0, 0, 0);
+}
+
+#PlayAgain button:hover {
+    border-color: rgb(0, 186, 186);
+    color: rgb(0, 186, 186);
+}
+
+#PlayAgain button:active {
+    border-color: aqua;
+    color: aqua;
+}
