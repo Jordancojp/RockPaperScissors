@@ -35,9 +35,7 @@ function newGame()
 
     scoreBoardPlayer.textContent = "Player Score: " + playerScore;
     scoreBoardComputer.textContent = "Computer Score: " + computerScore;
-}
-
-newGame();
+} newGame();
 
 function playRound(value) {
     let playerChoice = value;
@@ -104,57 +102,3 @@ function CheckWinner(p, c)
 
     return result;
 }
-
-/* OBSOLETE
-
-GameLoop();
-
-function GameLoop()
-{
-    let gamesPlayed = 0;
-
-    while(gamesPlayed < 5)
-    {   
-        let playerChoice = 0
-        // while(CheckValidChoice(playerChoice) == false)
-        // {        
-        //     playerChoice = parseInt(prompt("Type a number: 1 rock || 2 paper || 3 scissors"));
-        // }
-
-        //playerChoice = parseInt(prompt("Type a number: 1 rock || 2 paper || 3 scissors"));
-        
-        console.log(playerChoice);
-        let computerChoice = getComputerChoice();
-        console.log("Player chooses: " + GetRPS(playerChoice));
-    
-        console.log("Computer chooses: " + GetRPS(computerChoice));
-        CheckWinner(playerChoice, computerChoice);
-
-        gamesPlayed++;
-    }
-    
-}
-
-function CheckValidChoice(i)
-{
-    if( i === 1 || i === 2 || i === 3)
-    {
-        return true;
-    }
-    else
-    {
-        console.log("Incorrect input");
-        console.log(i);
-        return false;
-    }
-}
-
-function GetRPS( i )
-{
-    if(i === 1)
-        return "Rock"
-    if(i === 2)
-    return "Paper"
-    if(i === 3)
-    return "Scissors"
-} */
